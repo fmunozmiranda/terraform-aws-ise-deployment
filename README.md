@@ -53,8 +53,8 @@ module "ise-deployment" {
 
 | Name | Type |
 |------|------|
-| [aws_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | data source |
-| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/arn) | data source |
+| [aws_subnet](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet) | data source |
+| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/security_group) | data source |
 
 ## Inputs
 

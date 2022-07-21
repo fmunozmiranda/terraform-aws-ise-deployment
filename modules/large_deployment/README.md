@@ -39,7 +39,7 @@ None.
 
 | Name | Type |
 |------|------|
-| [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
+| [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
 
 ## Inputs
 
