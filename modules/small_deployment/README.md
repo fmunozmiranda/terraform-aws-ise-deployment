@@ -9,7 +9,7 @@ Terraform module which creates an ISE Small Deployment in AWS.
 
 module "ise-deployment_small_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/small_deployment"
-  version = "1.0.7"
+  version = "1.0.8"
   # insert the 7 required variables here
 }
 
