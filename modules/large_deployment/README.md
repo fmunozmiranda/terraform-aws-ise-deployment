@@ -7,10 +7,11 @@ Terraform module which creates an ISE Large Deployment in AWS.
 ```hcl
 
 
-module "ise-deployment_ise_network" {
+
+module "ise-deployment_large_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/large_deployment"
-  version = "1.0.4"
-  # insert the 6 required variables here
+  version = "1.0.6"
+  # insert the 8 required variables here
 }
 
 
