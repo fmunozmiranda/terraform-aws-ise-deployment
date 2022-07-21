@@ -43,11 +43,11 @@ module "ise-deployment" {
 
 | Name | Type |
 |------|------|
-| [ise_network](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | internal |
-| [large_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/arn) | internal |
-| [medium_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/arn) | internal |
-| [small_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/arn) | internal |
-| [single_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/arn) | internal |
+| [ise_network](https://registry.terraform.io/modules/fmunozmiranda/ise-deployment/aws/1.0.7/submodules/ise_network) | internal |
+| [large_deployment](https://registry.terraform.io/modules/fmunozmiranda/ise-deployment/aws/1.0.7/submodules/large_deployment) | internal |
+| [medium_deployment](https://registry.terraform.io/modules/fmunozmiranda/ise-deployment/aws/1.0.7/submodules/medium_deployment) | internal |
+| [small_deployment](https://registry.terraform.io/modules/fmunozmiranda/ise-deployment/aws/1.0.7/submodules/small_deployment) | internal |
+| [single_deployment](https://registry.terraform.io/modules/fmunozmiranda/ise-deployment/aws/1.0.7/submodules/single_node_deployment) | internal |
 
 ## Resources
 
