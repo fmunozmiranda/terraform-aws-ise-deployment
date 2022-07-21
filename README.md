@@ -4,7 +4,17 @@ Terraform module which creates an ISE Deployment in AWS.
 
 ## Usage
 
+```hcl
 
+
+module "ise-deployment" {
+  source  = "fmunozmiranda/ise-deployment/aws"
+  version = "1.0.0"
+  # insert the 19 required variables here
+}
+
+
+```
 
 ## Examples
 
