@@ -10,7 +10,7 @@ Terraform module which creates an ISE Large Deployment in AWS.
 
 module "ise-deployment_large_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/large_deployment"
-  version = "1.0.6"
+  version = "1.0.7"
   # insert the 8 required variables here
 }
 

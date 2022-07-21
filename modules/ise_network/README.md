@@ -10,7 +10,7 @@ Terraform module which creates an ISE Network in AWS.
 
 module "ise-deployment_large_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/large_deployment"
-  version = "1.0.6"
+  version = "1.0.7"
   # insert the 6 required variables here
 }
 
