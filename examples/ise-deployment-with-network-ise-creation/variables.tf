@@ -98,30 +98,25 @@ variable "aws_instance_type" {
 variable "ise_single_node_deployment" {
   description = "ISE Single Node Deployment"
   type        = number
-  default = 0
 }
 
 variable "ise_small_deployment" {
   description = "ISE Small Deployment"
   type        = number
-  default = 0
 }
 
 variable "ise_medium_deployment" {
   description = "ISE Medium Deployment"
   type        = number
-  default = 0
 }
 
 variable "ise_large_deployment" {
   description = "ISE Large Deployment"
   type        = number
-  default = 0
 }
 
 variable "ise_psn_instances" {
   description = "ISE PSN Instances"
   type        = number
-  default = 0
 }
 

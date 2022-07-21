@@ -1,7 +1,7 @@
 
 module "ise-deployment" {
   source  = "fmunozmiranda/ise-deployment/aws"
-  version = "1.0.1"
+  version = "1.0.2"
   # insert the 19 required variables here
   ise_base_hostname= var.ise_base_hostname
   ise_username = var.ise_username
@@ -19,7 +19,6 @@ module "ise-deployment" {
   ise_domain= var.ise_domain
   ise_password= var.ise_password
   ise_ntp_server= var.ise_ntp_server
-  ise_single_node_deployment= var.ise_single_node_deployment
   ise_small_deployment= var.ise_small_deployment
   ise_timezone= var.ise_timezone
   aws_create_network=var.aws_create_network

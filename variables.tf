@@ -98,11 +98,13 @@ variable "aws_instance_type" {
 variable "ise_single_node_deployment" {
   description = "ISE Single Node Deployment"
   type        = number
+  default = 0
 }
 
 variable "ise_small_deployment" {
   description = "ISE Small Deployment"
   type        = number
+  default = 0
 }
 
 variable "ise_medium_deployment" {
