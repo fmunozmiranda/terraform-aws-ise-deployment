@@ -27,6 +27,13 @@ resource "aws_security_group" "ise_security_group" {
   }
   ingress {
     protocol    = "tcp"
+    from_port   = 22
+    to_port     = 22
+    cidr_blocks = [var.aws_public_access_cidr]
+    description = "Access to HTTPS"
+  }
+  ingress {
+    protocol    = "tcp"
     from_port   = 0
     to_port     = 65535
     cidr_blocks = [var.aws_public_access_cidr]
@@ -41,8 +48,8 @@ resource "aws_security_group" "ise_security_group" {
   }
   ingress {
     protocol    = "icmp"
-    from_port   = 0
-    to_port     = 65535
+    from_port   = 1
+    to_port     = 1
     cidr_blocks = [var.aws_public_access_cidr]
   }
 }

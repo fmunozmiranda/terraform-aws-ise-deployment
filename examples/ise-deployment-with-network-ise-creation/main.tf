@@ -1,8 +1,8 @@
 
 module "ise-deployment" {
   source  = "fmunozmiranda/ise-deployment/aws"
-  version = "1.0.3"
-  # insert the 19 required variables here
+  version = "1.0.9"
+  # insert the 17 required variables here
   ise_base_hostname= var.ise_base_hostname
   ise_username = var.ise_username
   aws_instance_type= var.aws_instance_type
