@@ -9,7 +9,7 @@ Terraform module which creates an ISE Single Node Deployment in AWS.
 
 module "ise-deployment_single_node_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/single_node_deployment"
-  version = "1.0.8"
+  version = "1.0.9"
   # insert the 7 required variables here
 }
 
