@@ -9,7 +9,7 @@ Terraform module which creates an ISE Deployment in AWS.
 
 module "ise-deployment" {
   source  = "fmunozmiranda/ise-deployment/aws"
-  version = "1.0.9"
+  version = "1.0.10"
   # insert the 17 required variables here
 }
 
