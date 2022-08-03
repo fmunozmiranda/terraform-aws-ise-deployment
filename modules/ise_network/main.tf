@@ -19,19 +19,13 @@ resource "aws_security_group" "ise_security_group" {
   description = "ISE Security Group"
   vpc_id      = aws_vpc.ise_vpc.id
   ingress {
-    protocol    = "tcp"
+    protocol    = "http"
     from_port   = 443
     to_port     = 443
     cidr_blocks = [var.aws_public_access_cidr]
     description = "Access to HTTPS"
   }
-  ingress {
-    protocol    = "tcp"
-    from_port   = 22
-    to_port     = 22
-    cidr_blocks = [var.aws_public_access_cidr]
-    description = "Access to HTTPS"
-  }
+
   ingress {
     protocol    = "tcp"
     from_port   = 0
@@ -61,7 +55,4 @@ resource "aws_security_group" "ise_security_group" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "allow_tls"
-  }
 }

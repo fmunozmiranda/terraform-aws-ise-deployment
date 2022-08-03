@@ -1,13 +1,13 @@
 aws_instance_type          = "c5.4xlarge"
-aws_ise_ami                = "ami-0a8b4f863885c3372"
-aws_keypair_name           = "ise-testing"
+aws_ise_ami                = "ami-0ffd69a117dbcbb9e"
+aws_keypair_name           = "ise-key-test"
 aws_public_access_cidr     = "0.0.0.0/0"
 aws_region                 = "us-west-2"
 aws_subnet_cidr            = "10.10.10.0/24"
-aws_subnet_name            = "ISE Subnet"
+aws_subnet_name            = "ISE Subnet 2"
 aws_vpc_cidr               = "10.10.0.0/16"
 aws_vpc_name               = "ISE"
-aws_create_network         = true
+aws_create_network         = false
 aws_security_group_name    = "ISE VPC SG Group"
 ise_base_hostname          = "ISE"
 ise_dns_server             = "208.67.220.220"

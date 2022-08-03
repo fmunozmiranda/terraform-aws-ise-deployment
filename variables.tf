@@ -41,7 +41,7 @@ variable "aws_ise_ami" {
     condition     = length(var.aws_ise_ami) > 4 && substr(var.aws_ise_ami, 0, 4) == "ami-"
     error_message = "The aws_ise_ami value must be a valid AMI id, starting with \"ami-\"."
   }
-  type    = string
+  type = string
 }
 
 variable "aws_vpc_name" {
@@ -56,6 +56,11 @@ variable "aws_vpc_cidr" {
 
 variable "aws_subnet_name" {
   description = "AWS Subnet Name"
+  type        = string
+}
+
+variable "aws_security_group_id" {
+  description = "AWS Security Group Id Required with no network creation"
   type        = string
 }
 
@@ -82,7 +87,7 @@ variable "aws_public_access_cidr" {
 variable "aws_create_network" {
   description = "Define if terraform needs to create the VPC network and subnet"
   type        = bool
-  default = true
+  default     = true
 }
 
 variable "aws_keypair_name" {
@@ -98,29 +103,29 @@ variable "aws_instance_type" {
 variable "ise_single_node_deployment" {
   description = "ISE Single Node Deployment"
   type        = number
-  default = 0
+  default     = 0
 }
 
 variable "ise_small_deployment" {
   description = "ISE Small Deployment"
   type        = number
-  default = 0
+  default     = 0
 }
 
 variable "ise_medium_deployment" {
   description = "ISE Medium Deployment"
   type        = number
-  default = 0
+  default     = 0
 }
 
 variable "ise_large_deployment" {
   description = "ISE Large Deployment"
   type        = number
-  default = 0
+  default     = 0
 }
 
 variable "ise_psn_instances" {
   description = "ISE PSN Instances"
   type        = number
-  default = 0
+  default     = 0
 }

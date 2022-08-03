@@ -9,18 +9,24 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region     = var.aws_region
+  region = var.aws_region
 }
 
-# resource "tls_private_key" "ise_key_pair" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
+resource "tls_private_key" "ise_key_pair" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
 
-# resource "aws_key_pair" "ise_key_pair" {
-#   key_name   = var.aws_keypair_name
-#   public_key = tls_private_key.ise_key_pair.public_key_openssh
-# }
+resource "aws_key_pair" "ise_key_pair" {
+  key_name   = var.aws_keypair_name
+  public_key = tls_private_key.ise_key_pair.public_key_openssh
+}
+
+resource "local_file" "linuxkey" {
+  filename="${var.aws_keypair_name}.pem"  
+  content=tls_private_key.ise_key_pair.private_key_pem 
+  file_permission = "0600"
+}
 
 module "ise_network" {
   source                  = "./modules/ise_network"
@@ -43,14 +49,11 @@ data "aws_subnet" "ise_subnet" {
   count = var.aws_create_network ? 0 : 1
 }
 
-data "aws_security_group" "ise_security_group" {
-  filter {
-    name   = "tag:Name"
-    values = [var.aws_security_group_name]
-  }
+# data "aws_security_group" "ise_security_group" {
+#   name = var.aws_subnet_name
 
-  count = var.aws_create_network ? 0 : 1
-}
+#   count = var.aws_create_network ? 0 : 1
+# }
 
 module "single_node_deployment" {
   source            = "./modules/single_node_deployment"
@@ -64,10 +67,12 @@ module "single_node_deployment" {
   ise_password      = var.ise_password
   ise_timezone      = var.ise_timezone
   ise_username      = var.ise_username
+  aws_region = var.aws_region
   #key_pair_name     = aws_key_pair.ise_key_pair.key_name
-  key_pair_name     = var.aws_keypair_name
-  subnet_id         = var.aws_create_network ? module.ise_network[0].subnet_id : data.aws_subnet.ise_subnet[0].id
-  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : data.aws_security_group.ise_security_group[0].id
+  key_pair_name = var.aws_keypair_name
+  subnet_id     = var.aws_create_network ? module.ise_network[0].subnet_id : data.aws_subnet.ise_subnet[0].id
+  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : var.aws_security_group_id
+  
 }
 
 module "small_deployment" {
@@ -85,7 +90,7 @@ module "small_deployment" {
   #key_pair_name     = aws_key_pair.ise_key_pair.key_name
   key_pair_name     = var.aws_keypair_name
   subnet_id         = var.aws_create_network ? module.ise_network[0].subnet_id : data.aws_subnet.ise_subnet[0].id
-  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : data.aws_security_group.ise_security_group[0].id
+  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : var.aws_security_group_id
 }
 
 module "medium_deployment" {
@@ -104,7 +109,7 @@ module "medium_deployment" {
   #key_pair_name     = aws_key_pair.ise_key_pair.key_name
   key_pair_name     = var.aws_keypair_name
   subnet_id         = var.aws_create_network ? module.ise_network[0].subnet_id : data.aws_subnet.ise_subnet[0].id
-  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : data.aws_security_group.ise_security_group[0].id
+  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : var.aws_security_group_id
 
 }
 
@@ -124,5 +129,5 @@ module "large_deployment" {
   #key_pair_name     = aws_key_pair.ise_key_pair.key_name
   key_pair_name     = var.aws_keypair_name
   subnet_id         = var.aws_create_network ? module.ise_network[0].subnet_id : data.aws_subnet.ise_subnet[0].id
-  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : data.aws_security_group.ise_security_group[0].id
+  security_group_id = var.aws_create_network ? module.ise_network[0].security_group_id : var.aws_security_group_id
 }
