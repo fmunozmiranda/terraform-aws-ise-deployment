@@ -68,6 +68,7 @@ module "ise-deployment" {
 | aws_vpc_name | AWS VPC Name | `string` | - | yes |
 | aws_create_network | Define if terraform needs to create the VPC network and subnet| `boolean` | `true` | no |
 | aws_security_group_name | AWS Security Group Name | `string` | - |yes |
+| aws_security_group_id | AWS Security Group Id Required with no network creation | `string` | - |yes |
 | ise_base_hostname | ISE Server Base Hostname | `string` | - | yes |
 | ise_dns_server | ISE Server DNS | `string` | - | yes |
 | ise_domain  | ISE Server Domain | `string` | - | yes |
