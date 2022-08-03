@@ -10,7 +10,7 @@ Terraform module which creates an ISE Medium Deployment in AWS.
 
 module "ise-deployment_medium_deployment" {
   source  = "fmunozmiranda/ise-deployment/aws//modules/medium_deployment"
-  version = "1.0.10"
+  version = "1.0.11"
   # insert the 12 required variables here
 }
 
