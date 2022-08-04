@@ -10,7 +10,25 @@ Terraform module which creates an ISE Deployment in AWS.
 module "ise-deployment" {
   source  = "fmunozmiranda/ise-deployment/aws"
   version = "1.0.11"
-  # insert the 17 required variables here
+  aws_instance_type          = "c5.4xlarge"
+  aws_ise_ami                = "ami-0ffd69a117dbcbb9e"
+  aws_keypair_name           = "ise-key-test"
+  aws_public_access_cidr     = "0.0.0.0/0"
+  aws_region                 = "us-west-2"
+  aws_subnet_cidr            = "10.10.10.0/24"
+  aws_subnet_name            = "ISE Subnet 2"
+  aws_vpc_cidr               = "10.10.0.0/16"
+  aws_vpc_name               = "ISE"
+  aws_create_network         = false
+  aws_security_group_name    = "ISE VPC SG Group"
+  ise_base_hostname          = "ISE"
+  ise_dns_server             = "208.67.220.220"
+  ise_domain                 = "example.com"
+  ise_ntp_server             = "10.10.10.1"
+  ise_password               = "password"
+  ise_small_deployment       = 1
+  ise_timezone               = "America/Costa_Rica"
+  ise_username               = "admin"
 }
 
 
@@ -28,14 +46,14 @@ module "ise-deployment" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
+| terraform | >= 0.13.1 |
+| aws | >= 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
+| aws | >= 3.0 |
 
 ## Modules
 
@@ -86,6 +104,11 @@ module "ise-deployment" {
 
 None
 
+## Assumptions
+- If you don't put `ise_psn_instances` inside the parameters when running a medium or large deployment, the psn nodes are skipped.
+- The created SSH key is stored in the folder where the `main.tf` is executed.
+- This module does not consider possible errors due to security rules in ISE that may prevent the execution of the deployment.
+- If `aws_create_network` is not included, the default is create it.
 
 ## Authors
 
