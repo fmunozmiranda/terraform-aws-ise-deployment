@@ -9,7 +9,7 @@ Terraform module which creates an ISE Deployment in AWS.
 
 module "ise-deployment" {
   source  = "fmunozmiranda/ise-deployment/aws"
-  version = "1.0.11"
+  version = "1.0.12"
   aws_instance_type          = "c5.4xlarge"
   aws_ise_ami                = "ami-0ffd69a117dbcbb9e"
   aws_keypair_name           = "ise-key-test"
